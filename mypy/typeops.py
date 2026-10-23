@@ -7,6 +7,7 @@ NOTE: These must not be accessed from mypy.nodes or mypy.types to avoid import
 
 from __future__ import annotations
 
+import enum
 import itertools
 from collections.abc import Callable, Iterable, Sequence
 from typing import Any, Final, TypeVar, cast
@@ -1076,7 +1077,7 @@ def is_singleton_equality_type(typ: ProperType) -> bool:
     return isinstance(typ, LiteralType) or is_singleton_identity_type(typ)
 
 
-FLAG_ENUM_BASES: Final = ("enum.Flag", "enum.IntFlag")
+FLAG_ENUM_BASES: Final = ("enum.Flag",)
 
 
 def is_flag_enum_type(typ: ProperType) -> bool:
